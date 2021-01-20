@@ -75,7 +75,6 @@ export default function Profile({ match }) {
     })
     return match
   }
-
   const clickFollowButton = (callApi) => {
     callApi({
       userId: jwt.user._id
