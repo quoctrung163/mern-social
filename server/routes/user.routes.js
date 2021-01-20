@@ -1,6 +1,7 @@
 import express from 'express';
 import userCtrl from '../controllers/user.controller';
 import authCtrl from '../controllers/auth.controller';
+import userController from '../controllers/user.controller';
 
 const router = express.Router();
 
@@ -20,5 +21,13 @@ router.route('/api/users/photo/:userId')
 
 router.route('/api/users/defaultphoto')
   .get(userCtrl.defaultPhoto);
+
+router.route('/api/users/follow')
+  .put(authCtrl.requireSignin, userCtrl.addFollowing,
+    userCtrl.addFollower);
+
+router.route('/api/users/unfollow')
+  .put(authCtrl.requireSignin, userCtrl.addFollowing,
+    userController.addFollower);
 
 export default router;
