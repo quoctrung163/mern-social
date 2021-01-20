@@ -10,6 +10,8 @@ import Menu from './core/Menu';
 import PrivateRoute from './auth/PrivateRoute';
 import EditProfile from './user/EditProfile';
 
+import FollowGrid from './user/FollowGrid';
+
 const MainRouter = () => {
   return (
     <div>
@@ -21,6 +23,8 @@ const MainRouter = () => {
         <Route path='/signin' component={Signin} />
         <PrivateRoute path='/user/edit/:userId' component={EditProfile} />
         <Route path="/user/:userId" component={Profile} />
+        <FollowGrid people={props.user.followers} />
+        <FollowGrid people={props.user.following} />
       </Switch>
     </div>
   )
