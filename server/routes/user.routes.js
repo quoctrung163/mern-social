@@ -30,4 +30,7 @@ router.route('/api/users/unfollow')
   .put(authCtrl.requireSignin, userCtrl.addFollowing,
     userController.addFollower);
 
+router.route('/api/users/findpeople/:userId')
+  .get(authCtrl.requireSignin, userCtrl.findPeople)
+
 export default router;
